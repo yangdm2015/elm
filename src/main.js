@@ -3,7 +3,6 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueResource from 'vue-resource';
-/* import router from './router'; */
 import VueRouter from 'vue-router';
 import goods from 'components/goods/goods';
 import ratings from 'components/ratings/ratings';

@@ -219,6 +219,7 @@
       height: 100%
       overflow: auto
       background: rgba(7 17 27 0.8)
+      backdrop-filter:blur(10px)
       &.fade-enter-active, &.fade-leave-active
         transition: opacity .5s
       &.fade-enter,&.fade-leave-active
