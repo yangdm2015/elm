@@ -1,7 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import App from './App';
+import App from './App.vue';
 import VueResource from 'vue-resource';
 /* import router from './router'; */
 import VueRouter from 'vue-router';
@@ -14,10 +14,10 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.config.productionTip = false;
 const routes = [
-  { path: '/', component: goods },
-  { path: '/goods', component: goods },
-  { path: '/ratings', component: ratings },
-  { path: '/seller', component: seller }
+  {path: '/', component: goods},
+  {path: '/goods', component: goods},
+  {path: '/ratings', component: ratings},
+  {path: '/seller', component: seller}
 ];
 const router = new VueRouter({
   routes: routes,
@@ -29,6 +29,6 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App, goods }
+  components: {App, goods}
 });
 
