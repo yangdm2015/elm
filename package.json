@@ -18,8 +18,8 @@
     "vue": "^2.2.2",
     "vue-router": "^2.3.0",
     "vue-style-loader": "^2.0.5",
-    "vue-resource":"*",
-    "better-scroll":"^0.1.7"
+    "vue-resource": "*",
+    "better-scroll": "^0.1.7"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
