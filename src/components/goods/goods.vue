@@ -2,7 +2,9 @@
   <div class="goods">
     <div class="menu-wrapper" ref="menuWrapper">
       <ul>
-        <li v-for="(item, index) in goods" class="menu-item" :class="{'current':currentIndex === index}" @click="selectmenu(index)">
+        <li v-for="(item, index) in goods" class="menu-item"
+            :class="{'current':currentIndex === index}"
+            @click="selectmenu(index,$event)">
           <span class="text border-1px">
               <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
             </span>
@@ -26,8 +28,8 @@
                   <span>好评率{{food.rating}}%</span>
                 </div>
                 <div class="price">
-                  <span class="now">￥{{food.price}}</span><span class="old"
-                                                                v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+                  <span class="now">￥{{food.price}}</span>
+                  <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
               </div>
             </li>
@@ -74,11 +76,13 @@
         return 0;
       }
     },
-    created() {
+    mounted() {
       this.$http.get('/api/goods').then((rsp) => {
         rsp = rsp.body;
         if (rsp.errno === ERR_OK) {
           this.goods = rsp.data;
+//          this._initScroll();
+//          this._calculateHeight();
           this.$nextTick(() => {
             this._initScroll();
             this._calculateHeight();
@@ -88,11 +92,18 @@
       this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special'];
     },
     methods: {
-      selectmenu(index){
-
+      selectmenu(index, e){
+        console.log('index = ', index, '  e._constructed = ', e._constructed)
+        console.log(' e= ', e)
+//      当由BScroll派发的事件
+        if (!e._constructed) {
+          return
+        }
       },
       _initScroll(){
-        this.menuScroll = new BScroll(this.$refs.menuWrapper, {});
+        this.menuScroll = new BScroll(this.$refs.menuWrapper, {
+          click: true
+        });
         this.foodsScroll = new BScroll(this.$refs.foodWrapper, {
           probeType: 3
         });
