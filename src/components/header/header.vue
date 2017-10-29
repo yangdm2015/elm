@@ -30,7 +30,7 @@
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
     <transition name="fade">
-      <div v-show="detailShow" class="detail" >
+      <div v-show="detailShow" class="detail">
         <div class="detail-wrapper clearfix">
           <div class="detail-main">
             <h1 class="name">{{seller.name}}</h1>
@@ -219,10 +219,10 @@
       height: 100%
       overflow: auto
       background: rgba(7 17 27 0.8)
-      backdrop-filter:blur(10px)
+      backdrop-filter: blur(10px)
       &.fade-enter-active, &.fade-leave-active
         transition: opacity .5s
-      &.fade-enter,&.fade-leave-active
+      &.fade-enter, &.fade-leave-active
         opacity: 0
       /*&.fade-leave
         opacity: 1*/
