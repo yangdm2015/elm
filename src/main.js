@@ -13,14 +13,14 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.config.productionTip = false;
 const routes = [
-  {path: '/', component: goods},
+  {path: '/', component: goods}, // 这行保证一开始router-view里载入的模块就是goods
   {path: '/goods', component: goods},
   {path: '/ratings', component: ratings},
   {path: '/seller', component: seller}
 ];
 const router = new VueRouter({
   routes: routes,
-  linkActiveClass: 'active'
+  linkActiveClass: 'active' // 这行定义激活的link的class名称
 });
 
 /* eslint-disable no-new */
