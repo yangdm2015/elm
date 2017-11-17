@@ -14,12 +14,13 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "better-scroll": "^0.1.7",
+    "cookie-parser": "^1.4.3",
     "stylus": "^0.54.5",
     "vue": "^2.2.2",
-    "vue-router": "^2.3.0",
-    "vue-style-loader": "^2.0.5",
     "vue-resource": "*",
-    "better-scroll": "^0.1.7"
+    "vue-router": "^2.3.0",
+    "vue-style-loader": "^2.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -79,7 +80,7 @@
     "ora": "^1.1.0",
     "rimraf": "^2.6.0",
     "url-loader": "^0.5.8",
-    "vue-loader": "^11.1.4",
+    "vue-loader": "^12.2.2",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1",

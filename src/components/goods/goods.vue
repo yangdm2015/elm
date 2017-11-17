@@ -41,6 +41,7 @@
       </ul>
     </div>
     <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+
   </div>
 </template>
 
@@ -49,6 +50,7 @@
   import BScroll from 'better-scroll';
   import shopcart from 'components/shopcart/shopcart';
   import cartcontrol from 'components/cartcontrol/cartcontrol';
+
   export default{
     props: ['seller'],
     data(){
@@ -89,6 +91,7 @@
 //          this._initScroll();
 //          this._calculateHeight();
           this.$nextTick(() => {
+            // 某个操作需要使用随数据改变而改变的dom解构，这个操作就应该放到vue.nextTick()中
             this._initScroll();
             this._calculateHeight();
           });
@@ -99,16 +102,18 @@
     methods: {
       selectmenu(index, e){
 //        console.log('index = ', index, '  e._constructed = ', e._constructed)
-//      当由BScroll派发的事件
-//        if (!e._constructed) {
-//          return
-//        }
+
+//      由BScroll派发的事件,e._constructed为true，而原生事件e._constructed不存在
+        if (!e._constructed) {
+          return;
+        }
         let foodList = this.$refs.foodWrapper.getElementsByClassName('food-list-hook');
         let el = foodList[index]
-//        console.log(' el= ', el)
         this.foodsScroll.scrollToElement(el, 300)
+        console.log('index = ', index, '  e._constructed = ', e._constructed)
       },
       _initScroll(){
+        console.log(this.$refs.menuWrapper)
         this.menuScroll = new BScroll(this.$refs.menuWrapper, {
 //          click: true
         });
@@ -117,6 +122,7 @@
           probeType: 3
         });
         this.foodsScroll.on('scroll', (pos) => {
+          console.log('foodsScroll = ', this.foodsScroll)
           this.scrollY = Math.abs(Math.round(pos.y));
         });
       },

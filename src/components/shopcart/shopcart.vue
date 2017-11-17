@@ -3,6 +3,7 @@
     <div class="content">
       <div class="content-left">
         <div class="logo-wrapper">
+<<<<<<< Updated upstream
           <div class="logo" :class="{'highlight':totalCount>0}">
             <i class="icon-shopping_cart" :class="{'highlight':totalCount>0}"></i>
           </div>
@@ -23,6 +24,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+
   export default {
     name: '',
     data() {
@@ -69,6 +71,7 @@
     components: {}
   }
 </script>
+
 
 <style lang="stylus" rel="stylesheet/stylus">
   .shopcart
@@ -159,7 +162,6 @@
           &.enough
             background: #00b43c
             color: #fff
-
   /*.pay.enoungh*/
   /*background: #fff*/
 </style>
